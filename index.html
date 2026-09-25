@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honeycomb Systems</title>
+<meta name="description" content="Honeycomb Systems builds and runs point-of-sale, inventory and accounting systems on Odoo for grocery stores, restaurants, jewelry retailers and real estate owners in Virginia and Maryland.">
+<link rel="icon" type="image/png" href="assets/favicon.png">
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:title" content="Honeycomb Systems">
+<meta property="og:description" content="Business systems for grocery, restaurant, jewelry and real estate: point of sale, inventory, accounting and payments on Odoo.">
+<meta property="og:image" content="https://honeycombsystems.net/assets/mark.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Zilla+Slab:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --charcoal:#2C2C2A; --cream:#FAEEDA; --gold:#DA9100; --gold-shade:#A66C00; --ash:#6B6B67;
+    --bg:#FFFDF8; --surface:#FFFFFF; --text:#2C2C2A; --muted:#6B6B67; --line:#EADFC8; --band:#FAEEDA;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased}
+  a{color:var(--gold-shade)}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+  h1,h2,h3,.wordmark{font-family:"Zilla Slab",Georgia,serif;color:var(--charcoal);line-height:1.15}
+
+  header{position:sticky;top:0;z-index:10;background:rgba(255,253,248,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:68px;gap:12px}
+  .brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+  .brand img{height:44px;width:auto}
+  .wordmark{font-weight:700;letter-spacing:.08em;font-size:19px}
+  nav{display:flex;align-items:center;gap:22px}
+  nav .links{display:flex;gap:22px}
+  nav a{color:var(--charcoal);text-decoration:none;font-weight:500;font-size:15px}
+  nav a:hover{color:var(--gold-shade)}
+  .lang{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:4px;display:flex;gap:2px}
+  .lang button{border:0;background:transparent;font:600 13px Inter,sans-serif;padding:5px 10px;border-radius:999px;cursor:pointer;color:var(--muted)}
+  .lang button[aria-pressed="true"]{background:var(--charcoal);color:var(--cream)}
+
+  .hero{padding:84px 0 72px;display:grid;grid-template-columns:1.35fr .65fr;gap:40px;align-items:center}
+  .eyebrow{font:600 13px Inter,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-shade);margin:0 0 14px}
+  .hero h1{font-size:clamp(34px,5vw,54px);margin:0 0 18px;font-weight:700}
+  .hero p.lead{font-size:clamp(17px,2vw,19px);color:#45453F;max-width:600px;margin:0 0 28px}
+  .hero-mark{justify-self:center}
+  .hero-mark img{width:min(210px,100%);height:auto;display:block}
+  .btn{display:inline-block;background:var(--gold);color:#1E1E1C;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:10px;border:1px solid var(--gold-shade)}
+  .btn:hover{background:#E6A11F}
+  .btn.ghost{background:transparent;color:var(--charcoal);border-color:var(--line);margin-left:10px}
+
+  section{padding:72px 0}
+  .band{background:var(--band)}
+  .section-title{font-size:clamp(28px,3.4vw,38px);margin:0 0 10px}
+  .section-sub{color:var(--muted);margin:0 0 36px;max-width:680px}
+
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .card h3{font-size:21px;margin:0 0 8px}
+  .card p{margin:0;color:#4A4A45;font-size:15.5px}
+  .hex{width:30px;height:34px;margin-bottom:14px;background:var(--gold);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+  .hex.s2{background:#C2871A}.hex.s3{background:#9A7322}.hex.s4{background:#5A4A2E}.hex.s5{background:#23252A}
+
+  .industries{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+  .ind{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;padding:20px}
+  .ind h3{font-size:19px;margin:0 0 6px}
+  .ind p{margin:0;font-size:15px;color:#4A4A45}
+
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;counter-reset:s}
+  .step{padding:20px;border-top:3px solid var(--charcoal)}
+  .step::before{counter-increment:s;content:"0" counter(s);font:700 15px "Zilla Slab",serif;color:var(--gold-shade);display:block;margin-bottom:6px}
+  .step h3{font-size:19px;margin:0 0 6px}
+  .step p{margin:0;font-size:15px;color:#4A4A45}
+
+  .about{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+  .about p{margin:0 0 14px}
+  .facts{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+  .facts dt{font:600 12px Inter,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+  .facts dt:first-child{margin-top:0}
+  .facts dd{margin:3px 0 0;font-weight:500}
+
+  .contact{background:var(--charcoal);color:var(--cream);border-radius:18px;padding:48px 40px;display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap}
+  .contact h2{color:var(--cream);font-size:clamp(26px,3vw,34px);margin:0 0 8px}
+  .contact p{margin:0;color:#E9DCC3}
+  .contact .btn{white-space:nowrap}
+
+  footer{padding:36px 0 48px;color:var(--muted);font-size:14px}
+  .foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:24px}
+
+  [data-lang-es]{display:none}
+  html[lang="es"] [data-lang-en]{display:none}
+  html[lang="es"] [data-lang-es]{display:revert}
+
+  @media (max-width:900px){
+    .hero{grid-template-columns:1fr;padding:56px 0 48px}
+    .hero-mark{display:none}
+    .grid{grid-template-columns:1fr 1fr}
+    .industries,.steps{grid-template-columns:1fr 1fr}
+    .about{grid-template-columns:1fr}
+    nav .links{display:none}
+  }
+  @media (max-width:560px){
+    .wrap{padding:0 16px}
+    .grid,.industries,.steps{grid-template-columns:1fr}
+    .wordmark{font-size:16px}
+    .brand img{height:38px}
+    section{padding:52px 0}
+    .contact{padding:32px 22px}
+    .btn.ghost{margin:12px 0 0}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Honeycomb Systems home">
+      <img src="assets/mark.png" alt="" width="29" height="44">
+      <span class="wordmark">HONEYCOMB SYSTEMS</span>
+    </a>
+    <nav>
+      <span class="links">
+        <a href="#services"><span data-lang-en>Services</span><span data-lang-es>Servicios</span></a>
+        <a href="#industries"><span data-lang-en>Industries</span><span data-lang-es>Industrias</span></a>
+        <a href="#about"><span data-lang-en>About</span><span data-lang-es>Nosotros</span></a>
+        <a href="#contact"><span data-lang-en>Contact</span><span data-lang-es>Contacto</span></a>
+      </span>
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="wrap hero">
+    <div>
+      <p class="eyebrow"><span data-lang-en>Business systems for independent retailers</span><span data-lang-es>Sistemas para negocios independientes</span></p>
+      <h1>
+        <span data-lang-en>One system for your registers, inventory and books.</span>
+        <span data-lang-es>Un solo sistema para sus cajas, inventario y contabilidad.</span>
+      </h1>
+      <p class="lead">
+        <span data-lang-en>Honeycomb Systems sets up, customizes and supports Odoo for grocery stores, restaurants, jewelry retailers and real estate owners, from the point of sale and scales to vendor invoices and month-end books. In English and Spanish.</span>
+        <span data-lang-es>Honeycomb Systems instala, personaliza y da soporte a Odoo para supermercados, restaurantes, joyerías y dueños de propiedades: desde la caja y las básculas hasta las facturas de proveedores y el cierre del mes. En inglés y en español.</span>
+      </p>
+      <a class="btn" href="#contact"><span data-lang-en>Talk to us</span><span data-lang-es>Hable con nosotros</span></a>
+      <a class="btn ghost" href="#services"><span data-lang-en>What we do</span><span data-lang-es>Lo que hacemos</span></a>
+    </div>
+    <div class="hero-mark"><img src="assets/mark.png" alt="Honeycomb Systems logo" width="210" height="323"></div>
+  </div>
+
+  <section id="services" class="band">
+    <div class="wrap">
+      <h2 class="section-title"><span data-lang-en>What we do</span><span data-lang-es>Lo que hacemos</span></h2>
+      <p class="section-sub"><span data-lang-en>We run the whole system for you, so the store runs the store.</span><span data-lang-es>Nosotros nos encargamos del sistema completo, para que usted se enfoque en su negocio.</span></p>
+      <div class="grid">
+        <div class="card"><div class="hex"></div>
+          <h3><span data-lang-en>Point of sale</span><span data-lang-es>Punto de venta</span></h3>
+          <p><span data-lang-en>Odoo POS for counters and restaurant floors: menus with options, table and to-go orders, kitchen tickets, receipts and end-of-day reports.</span><span data-lang-es>Odoo POS para mostradores y restaurantes: menús con opciones, órdenes en mesa y para llevar, tickets de cocina, recibos y reportes de cierre.</span></p></div>
+        <div class="card"><div class="hex s2"></div>
+          <h3><span data-lang-en>Inventory &amp; pricing</span><span data-lang-es>Inventario y precios</span></h3>
+          <p><span data-lang-en>Clean product catalogs, barcodes and PLUs, and price updates straight from photographed vendor invoices, approved before anything changes.</span><span data-lang-es>Catálogos limpios, códigos de barras y PLU, y precios actualizados desde la foto de la factura del proveedor, siempre con aprobación antes de cambiar.</span></p></div>
+        <div class="card"><div class="hex s3"></div>
+          <h3><span data-lang-en>Accounting</span><span data-lang-es>Contabilidad</span></h3>
+          <p><span data-lang-en>Bank reconciliation, vendor bills and monthly statements organized so your accountant gets clean, complete numbers.</span><span data-lang-es>Conciliación bancaria, facturas de proveedores y estados de cuenta organizados para que su contador reciba números limpios y completos.</span></p></div>
+        <div class="card"><div class="hex s4"></div>
+          <h3><span data-lang-en>Hardware &amp; payments</span><span data-lang-es>Equipo y pagos</span></h3>
+          <p><span data-lang-en>Touchscreens, receipt and kitchen printers, deli and grocery scales connected to the POS, plus card processing through our merchant-services partner.</span><span data-lang-es>Pantallas táctiles, impresoras de recibos y de cocina, básculas conectadas a la caja, y procesamiento de tarjetas con nuestro socio de pagos.</span></p></div>
+        <div class="card"><div class="hex s5"></div>
+          <h3><span data-lang-en>Custom modules</span><span data-lang-es>Módulos a la medida</span></h3>
+          <p><span data-lang-en>When Odoo doesn't do it out of the box, we build it: delivery routes with signed receipts, pending-order boards, scale integrations and more.</span><span data-lang-es>Si Odoo no lo trae, lo construimos: rutas de entrega con recibos firmados, tableros de órdenes pendientes, integración con básculas y más.</span></p></div>
+        <div class="card"><div class="hex"></div>
+          <h3><span data-lang-en>Training &amp; support</span><span data-lang-es>Capacitación y soporte</span></h3>
+          <p><span data-lang-en>Bilingual guides and hands-on training for cashiers, managers and owners, and ongoing support after go-live.</span><span data-lang-es>Guías bilingües y capacitación en persona para cajeros, gerentes y dueños, con soporte continuo después del arranque.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <div class="wrap">
+      <h2 class="section-title"><span data-lang-en>Who we work with</span><span data-lang-es>Con quién trabajamos</span></h2>
+      <p class="section-sub"><span data-lang-en>Independent, family-run businesses in Virginia and Maryland.</span><span data-lang-es>Negocios independientes y familiares en Virginia y Maryland.</span></p>
+      <div class="industries">
+        <div class="ind"><h3><span data-lang-en>Grocery</span><span data-lang-es>Supermercados</span></h3><p><span data-lang-en>Thousands of SKUs, weighed products, deli scales and fast checkout.</span><span data-lang-es>Miles de productos, artículos por peso, básculas de deli y cobro rápido.</span></p></div>
+        <div class="ind"><h3><span data-lang-en>Restaurants</span><span data-lang-es>Restaurantes</span></h3><p><span data-lang-en>Floor plans, table and to-go orders, and kitchen printing.</span><span data-lang-es>Plano del salón, órdenes en mesa y para llevar, e impresión en cocina.</span></p></div>
+        <div class="ind"><h3><span data-lang-en>Jewelry</span><span data-lang-es>Joyerías</span></h3><p><span data-lang-en>Pieces by metal, weight and stone, plus layaway, repairs and deposits.</span><span data-lang-es>Piezas por metal, peso y piedra, además de apartados, reparaciones y depósitos.</span></p></div>
+        <div class="ind"><h3><span data-lang-en>Real estate &amp; rentals</span><span data-lang-es>Bienes raíces y rentas</span></h3><p><span data-lang-en>Rental income against repair, renovation and mortgage costs, for a true profit and loss per property.</span><span data-lang-es>Ingresos de renta contra costos de reparación, remodelación e hipoteca, para ver la ganancia real de cada propiedad.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band">
+    <div class="wrap">
+      <h2 class="section-title"><span data-lang-en>How we work</span><span data-lang-es>Cómo trabajamos</span></h2>
+      <p class="section-sub"><span data-lang-en>Every change is tested on a copy of your system before it touches the real one.</span><span data-lang-es>Cada cambio se prueba en una copia de su sistema antes de tocar el sistema real.</span></p>
+      <div class="steps">
+        <div class="step"><h3><span data-lang-en>Walk-through</span><span data-lang-es>Recorrido</span></h3><p><span data-lang-en>We visit, see how you sell today and what slows you down.</span><span data-lang-es>Visitamos su negocio y vemos cómo vende hoy y qué lo frena.</span></p></div>
+        <div class="step"><h3><span data-lang-en>Build</span><span data-lang-es>Construcción</span></h3><p><span data-lang-en>Catalog, registers, hardware and reports set up on a test copy.</span><span data-lang-es>Catálogo, cajas, equipo y reportes configurados en una copia de prueba.</span></p></div>
+        <div class="step"><h3><span data-lang-en>Go live</span><span data-lang-es>Arranque</span></h3><p><span data-lang-en>We switch over with you on site and train your team.</span><span data-lang-es>Hacemos el cambio con usted en el local y capacitamos a su equipo.</span></p></div>
+        <div class="step"><h3><span data-lang-en>Support</span><span data-lang-es>Soporte</span></h3><p><span data-lang-en>Ongoing fixes, improvements and clean books every month.</span><span data-lang-es>Arreglos, mejoras y contabilidad al día cada mes.</span></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2 class="section-title"><span data-lang-en>About Honeycomb</span><span data-lang-es>Sobre Honeycomb</span></h2>
+        <p><span data-lang-en>Honeycomb Systems grew out of running family grocery stores, restaurants and jewelry counters ourselves. We know what a slow register on a Saturday costs, and what it takes to hand an accountant a clean year.</span><span data-lang-es>Honeycomb Systems nació de operar nuestros propios supermercados, restaurantes y joyerías familiares. Sabemos lo que cuesta una caja lenta un sábado, y lo que se necesita para entregarle al contador un año limpio.</span></p>
+        <p><span data-lang-en>Each business is a cell. We build the systems that connect them.</span><span data-lang-es>Cada negocio es una celda. Nosotros construimos los sistemas que las conectan.</span></p>
+      </div>
+      <dl class="facts">
+        <dt><span data-lang-en>Company</span><span data-lang-es>Empresa</span></dt>
+        <dd>Crystal Payment Solutions LLC <span data-lang-en>dba</span><span data-lang-es>dba</span> Honeycomb Systems</dd>
+        <dt><span data-lang-en>Based in</span><span data-lang-es>Ubicación</span></dt>
+        <dd>Maryland, <span data-lang-en>serving Virginia and Maryland</span><span data-lang-es>con clientes en Virginia y Maryland</span></dd>
+        <dt><span data-lang-en>Platform</span><span data-lang-es>Plataforma</span></dt>
+        <dd>Odoo</dd>
+        <dt><span data-lang-en>Languages</span><span data-lang-es>Idiomas</span></dt>
+        <dd><span data-lang-en>English and Spanish</span><span data-lang-es>Inglés y español</span></dd>
+        <dt>Email</dt>
+        <dd><a href="mailto:jimmy@honeycombsystems.net">jimmy@honeycombsystems.net</a></dd>
+      </dl>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact">
+        <div>
+          <h2><span data-lang-en>Let's look at your store.</span><span data-lang-es>Veamos su negocio.</span></h2>
+          <p><span data-lang-en>Tell us what you sell and what isn't working. We'll get back to you.</span><span data-lang-es>Cuéntenos qué vende y qué no está funcionando. Le responderemos pronto.</span></p>
+        </div>
+        <a class="btn" href="mailto:jimmy@honeycombsystems.net?subject=Honeycomb%20Systems%20inquiry">jimmy@honeycombsystems.net</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>© <span id="yr">2026</span> Crystal Payment Solutions LLC dba Honeycomb Systems. <span data-lang-en>All rights reserved.</span><span data-lang-es>Todos los derechos reservados.</span></span>
+    <span>honeycombsystems.net</span>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var root=document.documentElement, btns=document.querySelectorAll('[data-set-lang]');
+    function set(l){ root.lang=l; btns.forEach(function(b){b.setAttribute('aria-pressed', String(b.dataset.setLang===l));});
+      try{localStorage.setItem('hc-lang',l);}catch(e){} }
+    btns.forEach(function(b){ b.addEventListener('click',function(){ set(b.dataset.setLang); }); });
+    var saved=null; try{saved=localStorage.getItem('hc-lang');}catch(e){}
+    if(saved==='es'||saved==='en'){ set(saved); }
+    else if((navigator.language||'').toLowerCase().indexOf('es')===0){ set('es'); }
+    document.getElementById('yr').textContent=new Date().getFullYear();
+  })();
+</script>
+</body>
+</html>
